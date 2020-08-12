@@ -10,6 +10,19 @@ from password_generator import PasswordGenerator
 from django.core.mail import send_mail
 
 @api_view(['GET'])
+def allapi(request):
+    return Response('''path('admin/', admin.site.urls),
+    path('', views.allapi, name="allapi"),
+    path('viewblog/', views.viewblog, name="viewblog"),
+    path('adminviewblog/', views.adminviewblog, name="adminviewblog"),
+    path('newblog/', views.newblog, name="newblog"),
+    path('deleteblog/<int:id>/', views.deleteblog, name="deleteblog"),
+    path('approveblog/<int:id>/', views.approveblog, name="approveblog"),
+    path('createuser/', views.createuser, name= "createuser"),
+    path('requestkey/<str:email>/',views.requestkey, name= "requestkey")''')
+
+
+@api_view(['GET'])
 def viewblog(request):
     blogs = Blog_foruser.objects.all()
     serializer = BlogForUserSerializer(blogs, many=True)

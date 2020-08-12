@@ -18,6 +18,7 @@ from django.urls import path
 from restapi import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.allapi, name="allapi"),
     path('viewblog/', views.viewblog, name="viewblog"),
     path('adminviewblog/', views.adminviewblog, name="adminviewblog"),
     path('newblog/', views.newblog, name="newblog"),
