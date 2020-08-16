@@ -19,11 +19,9 @@ from restapi import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.allapi, name="allapi"),
-    path('viewblog/', views.viewblog, name="viewblog"),
-    path('adminviewblog/', views.adminviewblog, name="adminviewblog"),
+    path('viewblog/<str:id>/', views.viewblog, name="viewblog"),
     path('newblog/', views.newblog, name="newblog"),
     path('deleteblog/<int:id>/', views.deleteblog, name="deleteblog"),
     path('approveblog/<int:id>/', views.approveblog, name="approveblog"),
-    path('createuser/', views.createuser, name= "createuser"),
-    path('requestkey/<str:email>/',views.requestkey, name= "requestkey")
+    path('requestkey/',views.requestkey, name= "requestkey")
 ]
